@@ -13,10 +13,10 @@ export const InfoCard = ({
 }: InfoCardProps) => {
     return (
         <div className='flex gap-[1rem] items-center'>
-            {logo && logo}
+            {logo}
             <div className='flex flex-col items-start justify-center'>
-                <span className='h3'>{count && count}+</span>
-                <p className='text-grey'>{description && description}</p>
+                <span className='h3'>{count}+</span>
+                <p className='text-grey'>{description}</p>
             </div>
         </div>
     )
