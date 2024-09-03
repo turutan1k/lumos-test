@@ -1,113 +1,175 @@
-import Image from "next/image";
+import React from "react"
+import {
+    AdvantagesCard,
+    Button,
+    InfoCard,
+    Section,
+    UsersBlock,
+} from "./components"
+import Link from "next/link"
+import Image from "next/image"
+import heroImage from "./assets/images/hero-image.png"
+import {
+    TrustedRight,
+    Servers,
+    TrustedLeft,
+    Location,
+    Eye,
+    Rocket,
+    CrossedMap,
+    Lock,
+} from "./assets/svgs"
+import { getData } from "./utils"
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+const information = [
+    {
+        id: 1,
+        count: 50,
+        description: "Locations",
+        logo: <Location />,
+    },
+    {
+        id: 2,
+        count: 1000,
+        description: "Servers",
+        logo: <Servers />,
+    },
+]
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+const advantages = [
+    {
+        id: 1,
+        title: "Unlimited access to content",
+        description:
+            "Enjoy unlimited bandwidth to stay connected to the world's best shows, apps, and games!",
+        logo: <Eye />,
+    },
+    {
+        id: 2,
+        title: "Flashing connecting speed",
+        description:
+            "VPN Lumos offers unlimited bandwidth for faster loading and no buffering!",
+        logo: <Rocket />,
+    },
+    {
+        id: 3,
+        title: "Hide your location",
+        description:
+            "Get your own unique IP for added security and access to restricted sites, apps, and services!",
+        logo: <CrossedMap />,
+    },
+    {
+        id: 4,
+        title: "Bypass blocked sites",
+        description: "Access any website safely and anonymously!",
+        logo: <Lock />,
+    },
+]
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+type Name = {
+    first: string
+    last: string
 }
+
+type User = {
+    name?: Name
+}
+
+const Page = async () => {
+    const data = await getData()
+    const userNames = data.results.map((item: User, index: number) =>
+        item.name
+            ? { id: index, name: `${item.name.first} ${item.name.last}` }
+            : ""
+    )
+
+    return (
+        <>
+            <Section>
+                <div className='flex flex-col gap-[2.4rem]'>
+                    <div className='flex flex-col items-center justify-center'>
+                        <h1 className='w-[39.6rem] text-center'>
+                            Access{" "}
+                            <span className='h1 text-blue'>
+                                everything
+                                <br /> securely
+                            </span>{" "}
+                            with <br />
+                            VPN
+                        </h1>
+                        <div className='relative isolate h-[20.9rem] w-[54rem] -top-[1.6rem] sm:w-[42.8rem]'>
+                            <Image
+                                fill
+                                priority
+                                sizes='(max-width: 480px) 100vw, 
+                                (max-width: 768px) 75vw, 
+                                (max-width: 1200px) 50vw, 
+                                33vw'
+                                src={heroImage}
+                                alt='photo'
+                                quality={70}
+                                style={{
+                                    objectFit: "contain",
+                                }}
+                            />
+                        </div>
+                        <Button
+                            as={Link}
+                            href={"#choose-your-name"}
+                            variant='primary'
+                            className='mt-[1.77rem] w-[39.6rem] flex items-center justify-center'>
+                            Get VPN
+                        </Button>
+                    </div>
+                    <div className='flex items-center justify-center gap-[0.8rem]'>
+                        <TrustedLeft />
+                        <div className='flex flex-col items-center justify-center'>
+                            <span className='text-blue poppins text-[1.4rem] leading-[1.8rem] font-[400]'>
+                                Trusted by
+                            </span>
+                            <span className='text-blue roboto text-[1.4rem] leading-[1.8rem] font-[600]'>
+                                50M+ Users
+                            </span>
+                        </div>
+                        <TrustedRight />
+                    </div>
+                    {information?.length > 0 && (
+                        <div className='shadow-[0rem_0.209rem_1.106rem_0_rgba(0,0,0,0.25)] w-full py-[1.5rem] flex items-center justify-center rounded-[1.6rem]'>
+                            <div className='info-cards w-[41.5rem] grid grid-cols-2'>
+                                {information?.map((item) => (
+                                    <InfoCard key={item?.id} data={item} />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    <p className='text-center'>
+                        VPN-your <span className='text-blue p'>ultimate</span>{" "}
+                        solution for a private and secure online experience!
+                    </p>
+                </div>
+            </Section>
+            {advantages?.length > 0 && (
+                <Section>
+                    <div className='advantages-cards flex flex-wrap gap-x-[3.2rem] gap-y-[0.8rem] items-stretch justify-center'>
+                        {advantages?.map((item) => (
+                            <AdvantagesCard key={item?.id} data={item} />
+                        ))}
+                    </div>
+                </Section>
+            )}
+            <Section id='choose-your-name'>
+                <h2 className='h3 text-blue text-center'>
+                    Millions of people trust us!
+                </h2>
+                <div className='pt-[7.2rem] flex flex-col items-start justify-start gap-[1.6rem] sm:pt-[4rem]'>
+                    <span className='h2'>
+                        Choose <span className='h2 text-blue'>your Name</span>
+                    </span>
+                    <UsersBlock data={userNames} />
+                </div>
+            </Section>
+        </>
+    )
+}
+
+export default Page
