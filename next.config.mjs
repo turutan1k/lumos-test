@@ -11,14 +11,6 @@ export default {
         return config
     },
     trailingSlash: true,
-    images: {
-        remotePatterns: [
-            {
-                protocol: "https",
-                hostname: "**",
-            },
-        ],
-    },
     reactStrictMode: true,
     experimental: { esmExternals: "loose" },
     output: "standalone",

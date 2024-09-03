@@ -4,14 +4,8 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
-        "start": "NODE_ENV=production node .next/standalone/server.js",
-        "lint": "eslint \"**/*.+(js|jsx|ts|tsx)\"",
-        "lint:fix": "eslint --fix \"**/*.+(js|jsx|ts|tsx)\"",
-        "prettier": "prettier --check \"**/*.+(js|jsx|ts|tsx|json|yml|yaml|md|css)\"",
-        "prettier:fix": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|yml|yaml|md|css)\"",
-        "prepare": "husky install",
-        "pre-commit": "lint-staged"
+        "build": "next build",
+        "start": "next start"
     },
     "dependencies": {
         "@typescript-eslint/eslint-plugin": "^8.4.0",
@@ -22,6 +16,7 @@
         "next": "14.2.7",
         "react": "^18",
         "react-dom": "^18",
+        "sharp": "^0.33.5",
         "tailwind-merge": "^2.5.2"
     },
     "devDependencies": {

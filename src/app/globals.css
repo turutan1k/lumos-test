@@ -150,6 +150,34 @@ p,
     }
 }
 
+@media (max-width: 426px) {
+    html,
+    body {
+        font-size: 57.5%;
+    }
+}
+
+@media (max-width: 394px) {
+    html,
+    body {
+        font-size: 52.5%;
+    }
+}
+
+@media (max-width: 362px) {
+    html,
+    body {
+        font-size: 47.5%;
+    }
+}
+
+@media (max-width: 330px) {
+    html,
+    body {
+        font-size: 42.5%;
+    }
+}
+
 /* styled radio */
 
 input[type="radio"] {
